@@ -33,7 +33,6 @@ mv .env.sample .env
 下記のコマンドでスクリプトを実行します。
 
 ```sh
-Copy code
 python3 get_file_report.py
 ```
 
