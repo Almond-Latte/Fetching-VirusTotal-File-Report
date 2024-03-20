@@ -4,6 +4,7 @@
 
 This Python script retrieves file reports using the [VirusTotal API v3](https://www.virustotal.com/gui/home/upload). With just the file's hash value and a VirusTotal API Key, anyone can easily execute it.
 
+[**日本語版はこちら**](README-ja.md)
 ## 🚀 Features
 - **Easy File Report Retrieval**: Utilizes VirusTotal's [Get a file report](https://docs.virustotal.com/reference/file-info) API to easily fetch file reports.
 - **Automation**: Sequentially and automatically retrieves data based on a list of hash values.
