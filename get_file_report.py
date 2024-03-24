@@ -25,31 +25,26 @@ handler.setFormatter(formatter)
 logger.addHandler(handler)
 
 
-def call_vt_api(sha256: str) -> dict[str, Any] or None:
+def call_vt_api(sha256: str) -> dict[str, Any] | None:
     """Call VirusTotal API and return response."""
     headers: dict[str, str] = {"x-apikey": API_KEY}
-    try:
-        logger.info(f"requesting {sha256}")
-        # request to VirusTotal
-        response = requests.get(VT_API_URL + sha256, headers=headers)
+    logger.info(f"requesting {sha256}")
+    # request to VirusTotal
+    response = requests.get(VT_API_URL + sha256, headers=headers)
 
-        # handle success
-        if response.status_code == 200:
-            return response.json()
-        # handle QuotaExceededError
-        elif response.status_code == 429:
-            logger.warning(
-                "QuotaExceededError... waiting until UTC 00:00 to request again."
-            )
-            wait_until_utc_midnight()
-            return call_vt_api(sha256)  # retry
-        # handle other errors
-        else:
-            logger.error(f"Error: {response.status_code} {response.text}")
-            return None
-
-    except Exception as e:
-        logger.error(f"Exception: {e}")
+    # handle success
+    if response.status_code == 200:
+        return response.json()
+    # handle QuotaExceededError
+    elif response.status_code == 429:
+        logger.warning(
+            "QuotaExceededError... waiting until UTC 00:00 to request again."
+        )
+        wait_until_utc_midnight()
+        return call_vt_api(sha256)  # retry
+    # handle other errors
+    else:
+        logger.error(f"Error: {response.status_code} {response.text}")
         return None
 
 
