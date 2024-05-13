@@ -84,4 +84,6 @@ def main() -> None:
 
 
 if __name__ == "__main__":
+    logger.info("start")
     main()
+    logger.info("end")
