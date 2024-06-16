@@ -33,6 +33,7 @@ In the `.env` file, write down the VirusTotal API key and the path to the file c
 Run the script with the following command.
 
 ```sh
+pip3 install -r requirements.txt
 python3 get_file_report.py
 ```
 🙏 Have a safe and secure digital life!
