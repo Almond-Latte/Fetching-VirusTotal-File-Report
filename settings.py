@@ -44,3 +44,4 @@ dotenv_path: Path = Path.joinpath(dirname, ".env")
 load_dotenv(dotenv_path, override=True)
 API_KEY: str = get_env("API_KEY")
 HASH_LIST_PATH: Path = Path(get_env("HASH_LIST_PATH"))
+OVERWRITE: bool = get_env("OVERWRITE").lower() == "true"

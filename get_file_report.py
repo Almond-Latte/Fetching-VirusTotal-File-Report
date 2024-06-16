@@ -12,6 +12,7 @@ import settings
 # load settings
 API_KEY: str = settings.API_KEY
 HASH_LIST_PATH: Path = settings.HASH_LIST_PATH
+OVERWRITE: bool = settings.OVERWRITE
 LOG_FILE_PATH: Path = settings.LOG_FILE_PATH
 DOWNLOAD_DIR: Path = settings.DOWNLOAD_DIR
 VT_API_URL: str = "https://www.virustotal.com/api/v3/files/"
@@ -67,9 +68,15 @@ def wait_until_utc_midnight() -> None:
 
 
 def main() -> None:
+    existing_files = [file.stem for file in DOWNLOAD_DIR.glob("*.json")]
     with HASH_LIST_PATH.open(mode="r") as f:
         for sha256 in f:
             sha256 = sha256.strip()
+
+            if not OVERWRITE and sha256 in existing_files:
+                logger.info(f"skipped {sha256}")
+                continue
+
             response: dict[str, Any] | None = call_vt_api(sha256)
             if response is None:
                 continue
