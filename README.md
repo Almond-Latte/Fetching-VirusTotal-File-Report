@@ -1,6 +1,6 @@
 # Fetching VirusTotal File Report
 
-![Static Badge](https://img.shields.io/badge/Python-3.10%20%7C%203.11%20%7C%203.12-blue) ![VirusTotal](https://img.shields.io/badge/VirusTotal-API%20v3-orange)
+![Static Badge](https://img.shields.io/badge/Python-3.10%20%7C%203.11%20%7C%203.12%20%7C%203.13-blue) ![VirusTotal](https://img.shields.io/badge/VirusTotal-API%20v3-orange)
 
 This Python script retrieves file reports using the [VirusTotal API v3](https://www.virustotal.com/gui/home/upload). With just the file's hash value and a VirusTotal API Key, anyone can easily execute it.
 
