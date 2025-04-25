@@ -3,6 +3,7 @@ from datetime import datetime, timedelta, timezone
 from logging import INFO, FileHandler, Formatter, getLogger
 from pathlib import Path
 from typing import Any
+from string import Template
 
 import requests
 import ujson as json
@@ -15,7 +16,7 @@ HASH_LIST_PATH: Path = settings.HASH_LIST_PATH
 OVERWRITE: bool = settings.OVERWRITE
 LOG_FILE_PATH: Path = settings.LOG_FILE_PATH
 DOWNLOAD_DIR: Path = settings.DOWNLOAD_DIR
-VT_API_URL: str = "https://www.virustotal.com/api/v3/files/"
+VT_API_URL: Template = Template("https://www.virustotal.com/api/v3/files/${id}")
 
 # init logger
 logger = getLogger(__name__)
@@ -31,7 +32,7 @@ def call_vt_api(sha256: str) -> dict[str, Any] | None:
     headers: dict[str, str] = {"x-apikey": API_KEY}
     logger.info(f"requesting {sha256}")
     # request to VirusTotal
-    response = requests.get(VT_API_URL + sha256, headers=headers)
+    response = requests.get(VT_API_URL.substitute(id=sha256), headers=headers)
 
     # handle success
     if response.status_code == 200:
