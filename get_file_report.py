@@ -57,7 +57,7 @@ def wait_until_utc_midnight() -> None:
         year=tomorrow.year,
         month=tomorrow.month,
         day=tomorrow.day,
-        hour=0,
+        hour=1,
         minute=0,
         second=0,
         tzinfo=timezone.utc,
