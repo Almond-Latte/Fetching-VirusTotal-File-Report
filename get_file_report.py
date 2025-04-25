@@ -40,7 +40,7 @@ def call_vt_api(sha256: str) -> dict[str, Any] | None:
     # handle QuotaExceededError
     elif response.status_code == 429:
         logger.warning(
-            "QuotaExceededError... waiting until UTC 00:00 to request again."
+            "QuotaExceededError... waiting until UTC midnight to request again."
         )
         wait_until_utc_midnight()
         return call_vt_api(sha256)  # retry
