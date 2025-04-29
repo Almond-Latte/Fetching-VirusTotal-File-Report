@@ -2,8 +2,8 @@ import time
 from datetime import datetime, timedelta, timezone
 from logging import INFO, FileHandler, Formatter, getLogger
 from pathlib import Path
-from typing import Any
 from string import Template
+from typing import Any
 
 import requests
 import ujson as json
@@ -72,7 +72,7 @@ def main() -> None:
     existing_files = [file.stem for file in DOWNLOAD_DIR.glob("*.json")]
     with HASH_LIST_PATH.open(mode="r") as f:
         for sha256 in f:
-            sha256 = sha256.strip()
+            sha256 = sha256.strip().lower()
 
             if not OVERWRITE and sha256 in existing_files:
                 logger.info(f"skipped {sha256}")
