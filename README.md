@@ -37,7 +37,12 @@ In the `.env` file, write down the VirusTotal API key and the path to the file c
 Run the script with the following command.
 
 ```sh
-python3 get_file_report.py
+uv run get_file_report.py
+```
+
+To see the available options, use the `--help` flag:
+```sh
+uv run get_file_report.py --help
 ```
 🙏 Have a safe and secure digital life!
 If you have any questions or feedback, feel free to post them on [Issues](https://github.com/almond-latte/fetching-virustotal-file-report/issues).

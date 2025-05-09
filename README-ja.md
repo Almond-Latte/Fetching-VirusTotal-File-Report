@@ -37,7 +37,12 @@ mv .env.sample .env
 下記のコマンドでスクリプトを実行します。
 
 ```sh
-python3 get_file_report.py
+uv run get_file_report.py
+```
+
+利用可能なオプションを確認するには、`--help` フラグを使用します。
+```sh
+uv run get_file_report.py --help
 ```
 
 🙏 よいセキュリティライフを！
