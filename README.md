@@ -11,7 +11,7 @@ This Python script retrieves file reports using the [VirusTotal API v3](https://
 - **Error Handling**: Implements error handling, including processing for reaching [API limits](https://docs.virustotal.com/reference/public-vs-premium-api).
   - **Request Rate**: Accounts for the limit of 4 requests per minute and 500 requests per day.
   - **Waiting Function**: Automatically waits until the next day (Default, UTC 01:00) if the limit is exceeded.
-- **Log Output**: Outputs execution logs in the `log` directory. Log names are recorded in Japan Standard Time. 
+- **Log Output**: Outputs execution logs in the `logs` directory. Log names are recorded in Japan Standard Time. 
 - **Data Saving**: Saves the retrieved data in JSON format in the `vt_reports` directory.
 
 ## 📦 Installation
