@@ -17,10 +17,14 @@
 
 GitHubからクローンし、必要なパッケージをインストールしてください。
 
+このプロジェクトでは、パッケージ管理に `uv` の使用を推奨しています。
+
 ```sh
 git clone https://github.com/almond-latte/fetching-virustotal-file-report.git
 cd fetching-virustotal-file-report
-pip3 install -r requirements.txt
+# uvがインストールされていない場合は、先にインストールしてください。
+# 例: pip install uv  または  curl -LsSf https://astral.sh/uv/install.sh | sh
+uv sync
 mv .env.sample .env
 ```
 ## 🔑 APIキーとハッシュ値リストの設定
@@ -38,4 +42,3 @@ python3 get_file_report.py
 
 🙏 よいセキュリティライフを！
 質問やフィードバックがある場合は、お気軽に[Issues](https://github.com/almond-latte/fetching-virustotal-file-report/issues)に投稿してください。
-

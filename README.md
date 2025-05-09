@@ -18,10 +18,14 @@ This Python script retrieves file reports using the [VirusTotal API v3](https://
 
 Clone from GitHub and install the necessary packages.
 
+This project recommends using `uv` for package management.
+
 ```sh
 git clone https://github.com/almond-latte/fetching-virustotal-file-report.git
 cd fetching-virustotal-file-report
-pip3 install -r requirements.txt
+# If you don't have uv installed, please install it first.
+# e.g., pip install uv  or  curl -LsSf https://astral.sh/uv/install.sh | sh
+uv sync
 mv .env.sample .env
 ```
 ## 🔑 Setting Up the API Key and Hash Value List
